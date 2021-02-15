@@ -1,0 +1,32 @@
+
+.container
+  display: flex
+  height: 100vh
+
+.image-container
+  flex-grow: 5
+  background-image: url('../../../assets/makis_2.jpg')
+  background-repeat: no-repeat
+  background-size: cover
+
+.form-container
+  display: flex
+  flex-grow: 1
+  background-color: white
+  padding: 20px
+  justify-content: center
+  align-items: center
+
+.login-box
+  width: 200px
+  mat-form-field
+    margin-bottom: 20px
+  >p
+    font-weight: bold
+    font-size: 20px
+  button
+    width: 100%
+
+@media (max-width: 768px)
+  .image-container
+    display: none

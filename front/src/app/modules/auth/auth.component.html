@@ -1,0 +1,26 @@
+<div class="container">
+    <div class="image-container">
+    </div>
+    <div class="form-container">
+        <div class="login-box">
+            <p color="primary">Login</p>
+            <div>
+                <form [formGroup]="formGroup">
+                    <mat-form-field appearance="legacy">
+                        <mat-label>Email</mat-label>
+                        <input matInput formControlName="userName" />
+                        <mat-error>Email must be valid.</mat-error>
+                    </mat-form-field>
+                    <mat-form-field appearance="legacy">
+                        <mat-label>Password</mat-label>
+                        <input matInput formControlName="password" type="password" />
+                        <mat-error>Password must be valid.</mat-error>
+
+                    </mat-form-field>
+                    <button mat-raised-button color="primary" (click)="login()">Enter</button>
+                </form>
+            </div>
+        </div>
+
+    </div>
+</div>
