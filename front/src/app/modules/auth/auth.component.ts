@@ -25,7 +25,6 @@ export class AuthComponent implements OnInit {
   async login() {
     if (this.formGroup.valid) {
       let response = await this.userService.getAccess(this.formGroup.get('userName').value, this.formGroup.get('password').value);
-      localStorage.setItem('token', response.data.token)
       this.router.navigate(['/main'])
     }
   }
