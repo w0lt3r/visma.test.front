@@ -63,12 +63,13 @@ describe('AuthComponent', () => {
   });
 });
 
-const routerSpy = jasmine.createSpyObj('Router', ['navigate']);
+
 const userServiceSpy = jasmine.createSpyObj('UserService', ['getAccess']);
 const validUser = { userName: 'admin@gmail.com', password: '123456' }
 const invalidUser = { userName: 'sadeweqwe@gmail.com', password: '123456asd' }
 
 describe('AuthComponent integrated successful test', () => {
+  const routerSpy = jasmine.createSpyObj('Router', ['navigate']);
   let fixture: ComponentFixture<AuthComponent>;
   let getAccessSpy;
   function fillForm(userName: string, password: string) {
@@ -77,6 +78,7 @@ describe('AuthComponent integrated successful test', () => {
   }
 
   beforeEach(async(() => {
+    
     const response = { data: { token: '' }, message: '' }
     getAccessSpy = userServiceSpy.getAccess.and.returnValue(Promise.resolve(response));
     TestBed.configureTestingModule({
@@ -120,6 +122,7 @@ describe('AuthComponent integrated successful test', () => {
 });
 
 describe('AuthComponent integrated failed test', () => {
+  const routerSpy = jasmine.createSpyObj('Router', ['navigate']);
   let fixture: ComponentFixture<AuthComponent>;
   function fillForm(userName: string, password: string) {
     fixture.componentInstance.formGroup.get('userName').setValue(userName);
@@ -145,7 +148,7 @@ describe('AuthComponent integrated failed test', () => {
 
 
   }));
-  it('should not navigate to home if login fails', fakeAsync(() => {
+  it('should not navigate to home if login fails2', fakeAsync(() => {
     userServiceSpy.getAccess.and.callFake(() => Promise.reject(new Error('Unauthorized')).catch(error => {
       expect(routerSpy.navigate).not.toHaveBeenCalled();
     }))
