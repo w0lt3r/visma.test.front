@@ -1,6 +1,6 @@
 # Visma.Test.Front
 
-Frontend for employee management.
+Frontend for employee management application.
 
 ## Usage
 
