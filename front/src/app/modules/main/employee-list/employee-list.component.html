@@ -1,0 +1,78 @@
+<div class="container">
+    <div class="title">
+        <div>Employees</div>
+    </div>
+    <div class="filter-container">
+        <form [formGroup]="formGroup" class="filter-container">
+            <mat-form-field appearance="outline">
+                <mat-label>First Name</mat-label>
+                <input matInput formControlName="firstName" autocomplete="off" (keyup.enter)="search(0)">
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Last Name</mat-label>
+                <input matInput formControlName="lastName" autocomplete="off" (keyup.enter)="search(0)">
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Social Security Number</mat-label>
+                <input matInput formControlName="socialSecurityNumber" autocomplete="off" (keyup.enter)="search(0)">
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Phone Number</mat-label>
+                <input matInput formControlName="phone" autocomplete="off" (keyup.enter)="search(0)">
+            </mat-form-field>
+        </form>
+    </div>
+    <div class="filter-button-container">
+        <div>
+            <button mat-raised-button (click)="clear()">
+                <mat-icon>cleaning_services</mat-icon>Clear
+            </button>
+        </div>
+        <div>
+            <button color="primary" mat-raised-button (click)="search(0)">
+                <mat-icon>search</mat-icon>Search
+            </button>
+        </div>
+    </div>
+    <div class="button-container">
+        <button mat-fab color="primary" (click)="add()">
+            <mat-icon>add_circle</mat-icon>
+        </button>
+    </div>
+    <div class="table-container">
+        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+            <ng-container matColumnDef="firstName">
+                <th mat-header-cell cdkDrag *matHeaderCellDef> First Name </th>
+                <td mat-cell *matCellDef="let element"> {{element.firstName}} </td>
+            </ng-container>
+            <ng-container matColumnDef="lastName">
+                <th mat-header-cell cdkDrag *matHeaderCellDef> LastName </th>
+                <td mat-cell *matCellDef="let element"> {{element.lastName}} </td>
+            </ng-container>
+            <ng-container matColumnDef="socialSecurityNumber">
+                <th mat-header-cell cdkDrag *matHeaderCellDef> Social Security Number </th>
+                <td mat-cell *matCellDef="let element"> {{element.socialSecurityNumber}} </td>
+            </ng-container>
+            <ng-container matColumnDef="phone">
+                <th mat-header-cell cdkDrag *matHeaderCellDef>Phone Number</th>
+                <td mat-cell *matCellDef="let element"> {{element.phone}}</td>
+            </ng-container>
+            <ng-container matColumnDef="actions" justify="end">
+                <th mat-header-cell cdkDrag *matHeaderCellDef>Actions</th>
+                <td mat-cell *matCellDef="let element">
+                    <button mat-icon-button aria-label="Delete">
+                        <mat-icon>delete</mat-icon>
+                    </button>
+                    <button mat-icon-button aria-label="Delete">
+                        <mat-icon>edit</mat-icon>
+                    </button>
+                </td>
+            </ng-container>
+            <tr mat-header-row *matHeaderRowDef="columns"></tr>
+            <tr mat-row *matRowDef="let row; columns: columns;"></tr>
+        </table>
+    </div>
+    <mat-paginator [length]="totalCount" [pageSize]="pageSize" [pageSizeOptions]="pageSizeOptions"
+        showFirstLastButtons="true" (page)="pageChanged($event)" [pageIndex]="pageNumber">
+    </mat-paginator>
+</div>
