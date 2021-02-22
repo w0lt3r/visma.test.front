@@ -4,7 +4,7 @@ Frontend for employee management application.
 
 ## Usage
 
-Change the property **apiUrl** in the **front\src\environments\environment.ts** file. This property points to the backend project. In most cases you will just need to change the port number.
+Change the property **apiUrl** in the **front\src\environments\environment.ts** file. This property points to the backend project. In most cases you only need to change the port number.
 
 ```js
 export const environment = {
