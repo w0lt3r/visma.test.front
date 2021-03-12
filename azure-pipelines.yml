@@ -6,6 +6,8 @@
 trigger:
 - main
 
+variables:
+  nickname: "drums"
 pool:
   vmImage: ubuntu-latest
 
@@ -20,4 +22,4 @@ steps:
     npm install
     ng build --prod
   workingDirectory: front
-  displayName: 'npm install and build'
+  displayName: 'npm install and build ${drums}'
