@@ -16,8 +16,8 @@ steps:
   displayName: 'Install Node.js'
 
 - script: |
-    cd /front
     npm install -g @angular/cli
     npm install
     ng build --prod
+  workingDirectory: /front
   displayName: 'npm install and build'
