@@ -22,7 +22,7 @@ steps:
     npm install
     ng build --prod
   workingDirectory: front
-  displayName: 'npm install and build ${drums}'
+  displayName: 'npm install and build $(nickname)'
 
 - task: PublishBuildArtifacts@1
   displayName: :'publish artifacts'
