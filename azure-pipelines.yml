@@ -23,3 +23,6 @@ steps:
     ng build --prod
   workingDirectory: front
   displayName: 'npm install and build ${drums}'
+
+- task: PublishBuildArtifacts@1
+  displayName: :'publish artifacts'
